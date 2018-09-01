@@ -5,8 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
+// Pages
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+// API
+var usersApiRouter = require('./routes/api/users');
+var publicationsApiRouter = require('./routes/api/publications');
 
 var app = express();
 
@@ -27,7 +31,8 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/users', usersApiRouter);
+app.use('/api/publications', publicationsApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,10 +44,18 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+  const statusCode = err.status || 500;
+
+  // render the error API
+  if (/.api/.test(req.url)) {
+    return res.status(statusCode).json({
+      code: statusCode,
+      message: err.message
+    });
+  }
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  return res.status(statusCode).render('error');
 });
 
 module.exports = app;

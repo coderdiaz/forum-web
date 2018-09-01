@@ -4,9 +4,11 @@
  * Module dependencies.
  */
 
+require('dotenv').config();
 var app = require('../app');
 var debug = require('debug')('nodejs-fsbt-04-2018:server');
 var http = require('http');
+var mongoose = require('mongoose');
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +22,14 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * Creating connection to Mongo DB
+ */
+const connect = () => {
+  const MONGO_URI_CONNECTION = process.env.MONGO_URI_CONNECTION || '';
+  return mongoose.connect(MONGO_URI_CONNECTION, {useNewUrlParser: true});
+}
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -86,5 +96,9 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  connect().then(() => {
+    debug('Listening on ' + bind);
+  }).catch(err => {
+    throw new Error(err);
+  });
 }
