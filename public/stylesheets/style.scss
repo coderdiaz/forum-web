@@ -1,6 +1,11 @@
-body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-a
-  color: #00B7FF
+.header {
+  .navbar {
+    background-color: #2e2e2e !important;
+    color: white;
+    a {
+      color: white;
+    }
+  }
+}
