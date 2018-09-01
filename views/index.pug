@@ -1,5 +1,33 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Forum
+  hr
+  div.row
+    div(class="col-md-4")
+      div.form-search
+        div.form-group
+          input(class="form-control", placeholder="Buscar un tema..")
+        div.form-group
+          button(class="btn btn-primary btn-block") Nueva publicación
+      div.tags-section
+        h4 Tags
+        ul.list-group
+          li.list-group-item Node
+          li.list-group-item PHP
+          li.list-group-item Express
+          li.list-group-item Pug
+          li.list-group-item Mongo
+    div(class="col-md-8")
+      div(class="card mb-2")
+        div.card-header 
+          span Titulo de la publicación 
+            small 2018-09-01 11:00:00
+        div.card-body
+          p Contenido de la publicación
+      div(class="card mb-2")
+        div.card-header 
+          span Titulo de la publicación 
+            small 2018-09-01 11:00:00
+        div.card-body
+          p Contenido de la publicación

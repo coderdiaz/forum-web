@@ -4,4 +4,9 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header.header
+      nav(class="navbar navbar-expand-lg navbar-light bg-light")
+        a(href="#", class="navbar-brand") Forum
+    main(class="main p-5")
+      div.container
+        block content
