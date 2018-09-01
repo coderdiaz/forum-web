@@ -8,6 +8,9 @@ const PublicationSchema = new Schema({
   content: {
     type: String
   },
+  slug: {
+    type: String
+  },
   author: {},
   tags: [String],
   likes: {
