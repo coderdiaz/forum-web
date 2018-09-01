@@ -9,6 +9,11 @@ router.get('/', async (req, res, next) => {
 });
 
 /* GET publication page */
+router.get('/forum/create', (req, res, next) => {
+  res.render('publication/create', {});
+});
+
+/* GET publication page */
 router.get('/forum/:slug', (req, res, next) => {
   res.render('publication', {});
 });
