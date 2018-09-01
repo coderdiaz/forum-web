@@ -19,15 +19,10 @@ block content
           li.list-group-item Pug
           li.list-group-item Mongo
     div(class="col-md-8")
-      div(class="card")
-        div.card-header 
-          span Titulo de la publicación 
-            small 2018-09-01 11:00:00
-        div.card-body
-          p Contenido de la publicación
-      div(class="card")
-        div.card-header 
-          span Titulo de la publicación 
-            small 2018-09-01 11:00:00
-        div.card-body
-          p Contenido de la publicación
+      each publication in publications
+        div(class="card")
+          div.card-header 
+            span #{publication.title}
+              small #{publication.createdAt}
+          div.card-body
+            p #{publication.content}
