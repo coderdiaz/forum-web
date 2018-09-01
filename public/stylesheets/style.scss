@@ -1,11 +1,32 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../scss/variables";
+
+body {
+  background: $background-color;
+}
 
 .header {
   .navbar {
-    background-color: #2e2e2e !important;
-    color: white;
+    background-color: $color-white !important;
+    color: $gray-dark-color;
     a {
-      color: white;
+      color: $gray-dark-color;
     }
+  }
+}
+
+.card {
+  border: 0;
+  border-bottom: 1px solid;
+  border-bottom-color: $background-color;
+  .card-header {
+    background: $color-white;
+    border: 0;
+    span {
+      font-weight: 600;
+    }
+  }
+  .card-body {
+    color: $text-color;
   }
 }
