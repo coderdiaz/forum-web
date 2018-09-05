@@ -3,11 +3,17 @@
 
 body {
   background: $background-color;
+  font-family: 'Encode Sans', sans-serif;
 }
 
 .header {
+  background: $color-white;
+  .container {
+    border-bottom: 1px solid;
+    border-bottom-color: $background-color;
+  }
   .navbar {
-    background-color: $color-white !important;
+    background-color: transparent;
     color: $gray-dark-color;
     a {
       color: $gray-dark-color;
@@ -17,16 +23,100 @@ body {
 
 .card {
   border: 0;
+  border-radius: 0;
   border-bottom: 1px solid;
   border-bottom-color: $background-color;
+  background: $color-white;
   .card-header {
-    background: $color-white;
+    background: transparent;
     border: 0;
+    padding: 10px 20px 0 20px;
     span {
       font-weight: 600;
+      font-size: 19px;
     }
   }
   .card-body {
+    font-size: 15px;
     color: $text-color;
+    font-weight: 400;
+    padding: 0 20px;
   }
+  .card-footer {
+    border: 0;
+    font-size: 13px;
+    background: transparent;
+    .nav-link {
+      padding: 6px;
+    }
+  }
+}
+
+.tag-list {
+  .list-group-item {
+    border: 0;
+    background: transparent !important;
+    font-size: 14px;
+    padding: 0.4rem 1rem;
+    &.active {
+      background: $color-white !important;
+      color: black;
+      border-radius: 3px;
+    }
+  }
+}
+
+h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #909ca8;
+  letter-spacing: 1.2px;
+}
+
+
+.footer__author {
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.tag-item {
+  a {
+    color: #30373f;
+    background: $tag-background;
+    padding: 3px 5px !important;
+    margin-top: 3px;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+}
+
+.section-info {
+  background: $color-white;
+}
+
+.btn-forum {
+  background-color: $primary-color !important;
+  border-color: darken($primary-color, 5%) !important;
+  padding: 10px;
+  margin-top: 15px;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: lighten($primary-color, 5%) !important;
+    border-color: darken($primary-color, 0%) !important;
+  }
+}
+
+.page-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.nav-custom {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
 }

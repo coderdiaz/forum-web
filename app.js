@@ -14,6 +14,12 @@ var publicationsApiRouter = require('./routes/api/publications');
 
 var app = express();
 
+// Locals
+app.locals.moment = require('moment');
+app.locals.truncate = function (text) {
+  return (text.length < 180) ? text.substring(0, 180) : text.substring(0,180) + '...' 
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

@@ -1,28 +1,30 @@
 extends layout
 
 block content
-  h1 Forum
-  hr
   div.row
-    div(class="col-md-4")
-      div.form-search
-        div.form-group
-          input(class="form-control", placeholder="Buscar un tema..")
-        div.form-group
-          button(class="btn btn-primary btn-block") Nueva publicación
-      div.tags-section
-        h4 Tags
-        ul.list-group
-          li.list-group-item Node
-          li.list-group-item PHP
-          li.list-group-item Express
-          li.list-group-item Pug
-          li.list-group-item Mongo
     div(class="col-md-8")
       each publication in publications
         div(class="card")
           div.card-header 
-            span #{publication.title}
-              small #{publication.createdAt}
+            span.card-title #{publication.title}
           div.card-body
-            p #{publication.content}
+            span #{truncate(publication.content)}
+          div.card-footer
+            ul.nav
+              li.nav-item
+                <img src="https://avatars2.githubusercontent.com/u/1901273?s=460&v=4" width="35" alt="" class="rounded-circle">
+              li.nav-item
+                span.nav-link <span class="footer__author">#{publication.author.name}</span> published #{moment(publication.createdAt).fromNow()}
+              each tag in publication.tags
+                li.nav-item.tag-item
+                  a(href="#", class="nav-link") #{tag}
+    div(class="col-md-4")
+      div.form-search
+        div.form-group
+          button(class="btn btn-info btn-block btn-forum")  Nueva publicación
+      div.tags-section
+        h4 Tags
+        div.list-group.tag-list
+          a.list-group-item.list-group-item-action.active(href="#") All
+          a.list-group-item.list-group-item-action(href="#") Node
+          a.list-group-item.list-group-item-action(href="#") PHP

@@ -1,13 +1,29 @@
 doctype html
 html
   head
-    title= title
+    title Floarum
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Encode+Sans:300,400,500,600,700')
   body
     div#app
       header.header
-        nav(class="navbar navbar-expand-lg navbar-light bg-light")
-          a(href="#", class="navbar-brand") Forum
+        div.container
+          nav(class="navbar")
+            a(href="#", class="navbar-brand")
+              img(src="https://cdn3.iconfinder.com/data/icons/free-mix/128/business_office_seo_finance_work_coffee_pause_management-07-512.png", width="35")
+              span.page-title Floarum
+            ul(class="nav nav-custom justify-content-end")
+              li(class="nav-item")
+                a(class="nav-link active", href="#")="Registrate"
+              li(class="nav-item")
+                a(class="nav-link active", href="#")="Iniciar sesión"
+      section.section-info
+        div.container
+          nav(class="navbar")
+            span(class="navbar-brand") Forum
+            ul(class="nav nav-custom justify-content-end")
+              li(class="nav-item")
+                  input(class="form-control", placeholder="Buscar un tema..")
       main(class="main p-5")
         div.container
           block content
