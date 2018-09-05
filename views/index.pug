@@ -6,7 +6,8 @@ block content
       each publication in publications
         div(class="card")
           div.card-header 
-            span.card-title #{publication.title}
+            a(href="forum/"+publication.slug)
+              span.card-title #{publication.title}
           div.card-body
             span #{truncate(publication.content)}
           div.card-footer

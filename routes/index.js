@@ -9,8 +9,23 @@ router.get('/', async (req, res, next) => {
 });
 
 /* GET publication page */
-router.get('/forum/:slug', (req, res, next) => {
-  res.render('publication', {});
+router.get('/forum/:slug', async (req, res, next) => {
+  const slug = req.params.slug
+  const publication = await Publication.findOne({ slug }).exec()
+  if (!publication) {
+    res.redirect('/')
+  }
+  res.render('publication', { publication });
+});
+
+/* GET login page */
+router.get('/login', (req, res, next) => {
+  res.render('login');
+});
+
+/* GET register page */
+router.get('/register', (req, res, next) => {
+  res.render('register');
 });
 
 module.exports = router;

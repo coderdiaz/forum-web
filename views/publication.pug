@@ -2,16 +2,16 @@ extends layout
 
 block content
   div.row
-    div(class="col-md-4")
-      div.section-user
-        img(src="https://via.placeholder.com/350x350", class="rounded-circle", width="120")
+    div(class="col-md-3")
+      div.section-user.text-center
+        img(src="https://avatars2.githubusercontent.com/u/1901273?s=460&v=4", class="rounded-circle", width="120")
         br
-        span Nombre del usuario
-    div(class="col-md-8")
-      h1 Titulo de la publicación
-      div(class="card mb-2")
+        br
+        span #{publication.author.name}
+    div(class="col-md-9")
+      h1 #{publication.title}
+      span <span class="footer__author">#{publication.author.name}</span> published #{moment(publication.createdAt).fromNow()}
+      div(class="card mt-3 mb-2")
         div.card-header 
-          span Titulo de la publicación 
-            small 2018-09-01 11:00:00
         div.card-body
-          p Contenido de la publicación
+          p #{publication.content}
