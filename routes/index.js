@@ -19,12 +19,12 @@ router.get('/forum/:slug', async (req, res, next) => {
 });
 
 /* GET login page */
-router.get('/login', (req, res, next) => {
+router.get('/signin', (req, res, next) => {
   res.render('login');
 });
 
 /* GET register page */
-router.get('/register', (req, res, next) => {
+router.get('/signup', (req, res, next) => {
   res.render('register');
 });
 

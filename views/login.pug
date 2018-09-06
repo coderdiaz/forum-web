@@ -2,7 +2,10 @@ extends layout
 
 block content
   div.row
-    div(class="col-md-4 offset-md-4")
+    div(class="col-md-6 panel panel-content")
+      h1.login-title Welcome back
+      p.login-content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dapibus odio at imperdiet vulputate. Praesent urna dolor, lacinia aliquam tortor elementum, consectetur sollicitudin turpis. Mauris quis cursus lacus, eu suscipit ipsum.
+    div(class="col-md-6 panel panel-signup-form")
       div.form-group
         label Email
         input(type="text", class="form-control")
@@ -10,4 +13,4 @@ block content
         label Password
         input(type="password", class="form-control")
       div.form-group
-        button(class="btn btn-info btn-block btn-forum") Login
+        button(class="btn btn-info btn-block btn-forum") Sign in

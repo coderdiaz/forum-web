@@ -35,6 +35,13 @@ body {
       font-weight: 600;
       font-size: 19px;
     }
+    a {
+      color: $gray-dark-color;
+      text-decoration: none;
+      &:hover {
+        color: lighten($gray-dark-color, 5%);
+      }
+    }
   }
   .card-body {
     font-size: 15px;
@@ -73,7 +80,6 @@ h4 {
   color: #909ca8;
   letter-spacing: 1.2px;
 }
-
 
 .footer__author {
   font-weight: 600;
@@ -119,4 +125,20 @@ h4 {
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.panel {
+  padding: 45px;
+}
+
+.panel-signup-form {
+  padding: 45px 80px;
+}
+
+.login-content {
+  color: $text-color;
+}
+
+.panel-content {
+  padding-left: 80px;
 }

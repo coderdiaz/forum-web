@@ -11,21 +11,21 @@ html
       header.header
         div.container
           nav(class="navbar")
-            a(href="#", class="navbar-brand")
+            a(href="/", class="navbar-brand")
               img(src="https://cdn3.iconfinder.com/data/icons/free-mix/128/business_office_seo_finance_work_coffee_pause_management-07-512.png", width="35")
               span.page-title Floarum
             ul(class="nav nav-custom justify-content-end")
               li(class="nav-item")
-                a(class="nav-link active", href="#")="Registrate"
+                a(class="nav-link active", href="/signup")="Sign Up"
               li(class="nav-item")
-                a(class="nav-link active", href="#")="Iniciar sesión"
+                a(class="nav-link active", href="/signin")="Login"
       section.section-info
         div.container
           nav(class="navbar")
-            span(class="navbar-brand") Forum
+            span(class="navbar-brand") Threads
             ul(class="nav nav-custom justify-content-end")
               li(class="nav-item")
-                  input(class="form-control", placeholder="Buscar un tema..")
+                  input(class="form-control", placeholder="Search for threads...")
       main(class="main p-5")
         div.container
           block content
