@@ -15,10 +15,16 @@ html
               img(src="https://cdn3.iconfinder.com/data/icons/free-mix/128/business_office_seo_finance_work_coffee_pause_management-07-512.png", width="35")
               span.page-title Floarum
             ul(class="nav nav-custom justify-content-end")
-              li(class="nav-item")
-                a(class="nav-link active", href="/signup")="Sign Up"
-              li(class="nav-item")
-                a(class="nav-link active", href="/signin")="Login"
+              if user
+                li(class="nav-item") 
+                 a(class="nav-link", href="#") Welcome, #{user.name}
+                li(class="nav-item")
+                  a(class="nav-link", href="/auth/logout") Logout
+              else
+                li(class="nav-item")
+                  a(class="nav-link", href="/signup")="Sign Up"
+                li(class="nav-item")
+                  a(class="nav-link", href="/signin")="Login"
       section.section-info
         div.container
           nav(class="navbar")

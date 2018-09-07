@@ -11,7 +11,14 @@ const PublicationSchema = new Schema({
   slug: {
     type: String
   },
-  author: {},
+  author: {
+    name: {
+      type: String
+    },
+    providerId: {
+      type: String
+    }
+  },
   tags: [String],
   likes: {
     type: Number,

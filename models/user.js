@@ -12,6 +12,9 @@ const UserSchema = new Schema({
     github: {
       type: String
     }
+  },
+  providerId: {
+    type: String
   }
 }, {
   timestamps: true

@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  if info
+    div.row
+      div.col-md-12
+        div.alert.alert-info #{info}
   div.row
     div(class="col-md-8")
       each publication in publications

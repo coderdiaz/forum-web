@@ -6,17 +6,28 @@ block content
       h1.login-title Get your free account
       p.login-content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dapibus odio at imperdiet vulputate. Praesent urna dolor, lacinia aliquam tortor elementum, consectetur sollicitudin turpis. Mauris quis cursus lacus, eu suscipit ipsum. Morbi turpis massa, varius non urna eu, viverra accumsan diam. Maecenas fringilla eget odio eu sodales.
     div(class="col-md-6 panel panel-signup-form")
-      div.form-group
-        label Email
-        input(type="text", class="form-control")
-      div.form-group
-        label Full name
-        input(type="text", class="form-control")
-      div.form-group
-        label Password
-        input(type="password", class="form-control")
-      div.form-group
-        button(class="btn btn-info btn-block btn-forum") Sign Up
-      div.form-group.text-center
-        span Already have an account? 
-          a(href="/signin") Login
+      if error
+        div.alert.alert-danger #{error}
+      if errors
+        div.alert.alert-danger <strong>Whoops...</strong> looks like something went wrong:
+          ul
+            each error in errors
+              li #{error}
+      form(method="POST", action="/auth/signup")
+        div.form-group
+          label Email
+          input(type="text", name="email", class="form-control")
+        div.form-group
+          label Fullname
+          input(type="text", name="fullName", class="form-control")
+        div.form-group
+          label Github username
+          input(type="text", name="github", class="form-control")
+        div.form-group
+          label Password
+          input(type="password", name="password", class="form-control")
+        div.form-group
+          button(class="btn btn-info btn-block btn-forum") Sign Up
+        div.form-group.text-center
+          span Already have an account? 
+            a(href="/signin") Login
