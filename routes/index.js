@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Publication = require('../models/publication');
+var isAuthenticated = require('../middlewares/isAuthenticated');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
@@ -27,5 +28,10 @@ router.get('/signin', (req, res, next) => {
 router.get('/signup', (req, res, next) => {
   res.render('register');
 });
+
+/* GET create page */
+router.get('/create', isAuthenticated, (req, res, next) => {
+  res.render('create');
+})
 
 module.exports = router;

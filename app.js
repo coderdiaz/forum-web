@@ -23,6 +23,7 @@ firebase.initializeApp(firebaseConfig);
 // Pages
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const publicationRouter = require('./routes/publication');
 
 // API
 const usersApiRouter = require('./routes/api/users');
@@ -86,6 +87,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/publication', publicationRouter)
 app.use('/api/users', usersApiRouter);
 app.use('/api/publications', publicationsApiRouter);
 

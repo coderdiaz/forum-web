@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div.row
+    div(class="col-md-6")
+      form(method="POST", action="/publication")
+        div.form-group
+          label Subject
+          input(type="text", name="title", class="form-control")
+          small(class="form-text text-muted") Maximum 60 characters
+        div.form-group
+          label Body
+          div(id="editor", class="form-control")
+          textarea(id="textarea-content", name="content", class="form-control")
+          small(class="form-text text-muted") Markdown is supported
+        div.form-group
+          label Tags
+          input(type="text", name="tags", class="form-control")
+        div.form-group
+          div.btn-group
+            button(class="btn btn-info") Create thread
+            a(href="/", class="btn btn-light") Cancel
+    div(class="col-md-6")
+      div.alert.alert-info Please try to search for your question first using the search box and make sure you've read our Forum rules before creating a thread.
+block scripts
+  script(src="https://cdn.quilljs.com/1.3.6/quill.js")
+  script(src="/javascripts/create.js")
