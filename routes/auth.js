@@ -68,7 +68,11 @@ router.post('/signup', (req, res, next) => {
 /* GET logout */
 router.get('/logout', (req, res, next) => {
   req.session.destroy(() => {
-    res.redirect('/');
+    firebase.auth().signOut().then(() => {
+      res.redirect('/');
+    }).catch(err => {
+      res.redirect('/')
+    });
   });
 });
 
