@@ -23,6 +23,13 @@ block content
               each tag in publication.tags
                 li.nav-item.tag-item
                   a(href="#", class="nav-link") #{tag}
+      else
+        div.text-center
+          img(src="images/svg/message.svg", width="150")
+          br
+          br
+          h2.title-results It looks like you are lost
+          h3.title-results-message Well, I think we have not yet content here
     div(class="col-md-4")
       div.form-search
         div.form-group
