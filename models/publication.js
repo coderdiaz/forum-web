@@ -15,6 +15,9 @@ const PublicationSchema = new Schema({
     name: {
       type: String
     },
+    github: {
+      type: String
+    },
     providerId: {
       type: String
     }

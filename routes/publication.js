@@ -19,6 +19,7 @@ router.post('/', (req, res, next) => {
   data.author = {}
   data.author.name = req.session.user.name
   data.author.providerId = req.session.user.providerId
+  data.author.github = req.session.user.social.github
   const createdPublication = new Publication(data);
   createdPublication.save();
   res.redirect(`/forum/${data.slug}`)
