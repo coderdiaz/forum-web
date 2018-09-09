@@ -19,7 +19,6 @@ router.post('/', (req, res, next) => {
   data.author = {}
   data.author.name = req.session.user.name
   data.author.providerId = req.session.user.providerId
-  data.tags = data.tags.split(',')
   const createdPublication = new Publication(data);
   createdPublication.save();
   res.redirect(`/forum/${data.slug}`)

@@ -8,6 +8,9 @@ const expressSession = require('express-session');
 const firebase = require('firebase');
 require('firebase/auth');
 
+// Middlewares
+const sessionPersistedMiddleware = require('./middlewares/sessionPersisted');
+
 // Firebase config
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_APIKEY,
@@ -28,6 +31,7 @@ const publicationRouter = require('./routes/publication');
 // API
 const usersApiRouter = require('./routes/api/users');
 const publicationsApiRouter = require('./routes/api/publications');
+const tagsApiRouter = require('./routes/api/tags');
 
 const app = express();
 
@@ -62,34 +66,14 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Session-persisted message middleware
-app.use((req, res, next) => {
-  const err = req.session.error;
-  const msg = req.session.notice;
-  const success = req.session.success;
-  const info = req.session.info;
-  const errors = req.session.errors;
-  const user = req.session.user;
-
-  delete req.session.error;
-  delete req.session.success;
-  delete req.session.notice;
-  delete req.session.info;
-  delete req.session.errors;
-
-  if (err) res.locals.error = err;
-  if (msg) res.locals.notice = msg;
-  if (success) res.locals.success = success;
-  if (info) res.locals.info = info;
-  if (errors) res.locals.errors = errors;
-  if (user) res.locals.user = user;
-  next();
-});
+app.use(sessionPersistedMiddleware);
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/publication', publicationRouter)
 app.use('/api/users', usersApiRouter);
 app.use('/api/publications', publicationsApiRouter);
+app.use('/api/tags', tagsApiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

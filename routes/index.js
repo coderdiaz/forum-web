@@ -1,12 +1,20 @@
 var express = require('express');
 var router = express.Router();
 var Publication = require('../models/publication');
+var Tag = require('../models/tag');
 var isAuthenticated = require('../middlewares/isAuthenticated');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
   const publications = await Publication.find().exec()
-  res.render('index', { publications });
+  const tags = await Tag.find().exec();
+  res.render('index', { publications, tags });
+});
+
+/* GET create page */
+router.get('/forum/create', isAuthenticated, async (req, res, next) => {
+  const tags = await Tag.find().exec();
+  res.render('forum/create', { tags });
 });
 
 /* GET publication page */
@@ -16,7 +24,8 @@ router.get('/forum/:slug', async (req, res, next) => {
   if (!publication) {
     res.redirect('/')
   }
-  res.render('publication', { publication });
+  console.log(publication)
+  res.render('forum/slug', { publication });
 });
 
 /* GET login page */
@@ -28,10 +37,5 @@ router.get('/signin', (req, res, next) => {
 router.get('/signup', (req, res, next) => {
   res.render('register');
 });
-
-/* GET create page */
-router.get('/create', isAuthenticated, (req, res, next) => {
-  res.render('create');
-})
 
 module.exports = router;

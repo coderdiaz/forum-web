@@ -10,3 +10,9 @@ editor.on('editor-change', function(eventName, options) {
     textarea.value = editor.root.innerHTML
   }
 });
+
+
+// Select
+new SlimSelect({
+  select: '#slim-multi-select'
+})
