@@ -4,7 +4,10 @@ block content
   div.row
     div(class="col-md-3")
       div.section-user.text-center
-        img(src="https://avatars2.githubusercontent.com/u/1901273?s=460&v=4", class="rounded-circle", width="120")
+        if publication.author.github
+          <img src="https://avatars.githubusercontent.com/#{publication.author.github}" width="120" alt="" class="rounded-circle">
+        else
+          <img src="https://avatars.githubusercontent.com/github" width="120" alt="" class="rounded-circle">
         br
         br
         span #{publication.author.name}
@@ -12,6 +15,22 @@ block content
       h1 #{publication.title}
       span <span class="footer__author">#{publication.author.name}</span> published #{moment(publication.createdAt).fromNow()}
       div(class="card mt-3 mb-2")
-        div.card-header 
         div.card-body
           p !{publication.content}
+      hr
+      if user
+        div.comment
+          div.alert.alert-info Please make sure you've read our rules before replying to this thread.
+          div.form-group
+            div(id="editor", class="form-control")
+            textarea(id="textarea-content", name="content", class="d-none form-control")
+          div.form-group
+            button(class="btn btn-secondary") Reply
+      else
+        div.comment.text-center
+          span <a href="/signin">Sign in</a> to participate in this thread!
+block scripts
+  script(src="https://cdn.quilljs.com/1.3.6/quill.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.17.0/slimselect.min.js")
+  if user
+    script(src="/javascripts/publication.js")

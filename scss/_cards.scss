@@ -1,0 +1,47 @@
+.card {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid;
+  border-bottom-color: $background-color;
+  background: $color-white;
+  .card-header {
+    background: transparent;
+    border: 0;
+    padding: 10px 20px 0 20px;
+    span {
+      font-weight: 600;
+      font-size: 19px;
+    }
+    a {
+      color: $gray-dark-color;
+      text-decoration: none;
+      &:hover {
+        color: lighten($gray-dark-color, 5%);
+      }
+    }
+  }
+  .card-body {
+    font-size: 15px;
+    color: $text-color;
+    font-weight: 400;
+    padding: 0 20px;
+  }
+  .card-footer {
+    border: 0;
+    font-size: 13px;
+    background: transparent;
+    .tag-item {
+      a {
+        color: #30373f;
+        background: $tag-background;
+        padding: 3px 5px !important;
+        margin-top: 3px;
+        margin-right: 5px;
+        border-radius: 3px;
+      }
+    }
+    .nav-link {
+      padding: 6px;
+    }
+  }
+}

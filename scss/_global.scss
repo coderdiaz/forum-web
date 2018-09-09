@@ -1,0 +1,86 @@
+body {
+  background: $color-white;
+  font-family: 'Miriam Libre', sans-serif;
+}
+
+a {
+  color: $primary-color;
+  &:hover {
+    text-decoration: none;
+    color: darken($primary-color, 5%);
+  }
+}
+
+
+.main {
+  background: $background-color;
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+.section-info {
+  background: $color-white;
+  position: relative;
+  z-index: 1;
+  box-shadow: 1px 2px 2px rgba(46, 46, 46, 0.0784313725490196);
+}
+
+.navbar {
+  padding: 0.5rem 0;
+}
+
+.page-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.panel {
+  padding: 45px;
+}
+
+.panel-signup-form {
+  padding: 45px 80px;
+}
+
+.login-content {
+  color: $text-color;
+}
+
+.panel-content {
+  padding-left: 80px;
+}
+
+.title-results {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.title-results-message {
+  font-size: 18px;
+  color: $text-color;
+}
+
+.ss-main .ss-multi-selected {
+  padding: 0.375rem 0.75rem !important;
+  border-radius: 0 !important;
+}
+
+.ss-main .ss-content .ss-search input:focus {
+  box-shadow: none !important;
+}
+
+.comment {
+  .ql-container {
+    .ql-editor {
+      height: 130px;
+    }
+  }
+}
+
+
+.footer__author {
+  font-weight: 600;
+  color: $primary-color;
+}

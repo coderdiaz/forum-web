@@ -1,0 +1,22 @@
+.sidebar {
+  h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #909ca8;
+    letter-spacing: 1.2px;
+  }
+  .tag-list {
+    .list-group-item {
+      border: 0;
+      background: transparent !important;
+      font-size: 14px;
+      padding: 0.4rem 1rem;
+      &.active {
+        background: $color-white !important;
+        color: black;
+        border-radius: 3px;
+      }
+    }
+  }
+}

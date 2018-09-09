@@ -1,0 +1,15 @@
+.form-control {
+  border-radius: 0;
+}
+
+.input-search {
+  border: 0;
+  width: 250px;
+  background: #f1f3f4;
+  border-radius: 5px;
+  &:focus {
+    border-color: #ced4da;
+    background: darken(#f1f3f4, 2%);
+    box-shadow: none;
+  }
+}

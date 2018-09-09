@@ -1,0 +1,19 @@
+.header {
+  background: $color-white;
+  .container {
+    border-bottom: 1px solid;
+    border-bottom-color: $background-color;
+  }
+  .navbar {
+    background-color: transparent;
+    color: $gray-dark-color;
+    a {
+      color: $gray-dark-color;
+    }
+    .nav-custom {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+}
