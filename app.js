@@ -6,6 +6,7 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const expressSession = require('express-session');
 const firebase = require('firebase');
+const htmlToText = require('html-to-text');
 require('firebase/auth');
 
 // Middlewares
@@ -37,9 +38,8 @@ const app = express();
 
 // Locals
 app.locals.moment = require('moment');
-app.locals.truncate = (text) => {
-  return (text.length < 180) ? text.substring(0, 180) : text.substring(0,180) + '...' 
-}
+app.locals.truncate = (text) => (text.length < 180) ? text : text.substring(0,180) + '...'
+app.locals.htmlToText = (html) => htmlToText.fromString(html)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

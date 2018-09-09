@@ -13,7 +13,7 @@ block content
             a(href="forum/"+publication.slug)
               span.card-title #{publication.title}
           div.card-body
-            span #{truncate(publication.content)}
+            span #{truncate(htmlToText(publication.content))}
           div.card-footer
             ul.nav
               li.nav-item
