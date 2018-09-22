@@ -28,6 +28,7 @@ firebase.initializeApp(firebaseConfig);
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const publicationRouter = require('./routes/publication');
+const commentRouter = require('./routes/comment');
 
 // API
 const usersApiRouter = require('./routes/api/users');
@@ -71,6 +72,7 @@ app.use(sessionPersistedMiddleware);
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/publication', publicationRouter)
+app.use('/comment', commentRouter);
 app.use('/api/users', usersApiRouter);
 app.use('/api/publications', publicationsApiRouter);
 app.use('/api/tags', tagsApiRouter);

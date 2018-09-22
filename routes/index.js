@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var Publication = require('../models/publication');
-var Tag = require('../models/tag');
-var isAuthenticated = require('../middlewares/isAuthenticated');
+const express = require('express');
+const router = express.Router();
+const Publication = require('../models/publication');
+const Tag = require('../models/tag');
+const Comment = require('../models/comment');
+const isAuthenticated = require('../middlewares/isAuthenticated');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
@@ -24,8 +25,8 @@ router.get('/forum/:slug', async (req, res, next) => {
   if (!publication) {
     res.redirect('/')
   }
-  console.log(publication)
-  res.render('forum/slug', { publication });
+  const comments = await Comment.find({ parentId: slug }).exec()
+  res.render('forum/slug', { publication, comments });
 });
 
 /* GET login page */

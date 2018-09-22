@@ -45,3 +45,15 @@
     }
   }
 }
+
+.media {
+  .media-body {
+    background: $color-white;
+    padding: 10px;
+    margin-left: 10px;
+    .comment__author {
+      color: $primary-color;
+      font-weight: bold;
+    }
+  }
+}

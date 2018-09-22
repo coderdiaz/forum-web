@@ -5,7 +5,20 @@ const CommentSchema = new Schema({
   content: {
     type: String
   },
-  author: {},
+  author: {
+    name: {
+      type: String
+    },
+    github: {
+      type: String
+    },
+    providerId: {
+      type: String
+    }
+  },
+  parentId: {
+    type: String
+  },
   likes: {
     type: Number,
     default: 0
