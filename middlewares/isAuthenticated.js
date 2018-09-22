@@ -8,6 +8,7 @@ const debug = require('debug')('nodejs-fsbt-04-2018:server');
  * @param {NextFunction} next 
  */
 const isAuthenticated = (req, res, next) => {
+  debug(req.session.user);
   const user = firebase.auth().currentUser
   debug(user);
   if (!user) {
