@@ -9,9 +9,9 @@ const firebase = require('firebase');
 const isAuthenticated = (req, res, next) => {
   const user = firebase.auth().currentUser
   if (!user) {
-    req.user = user
     return res.redirect('/signin')
   }
+  req.user = user;
   next()
 }
 
