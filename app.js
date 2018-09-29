@@ -31,6 +31,7 @@ const publicationRouter = require('./routes/publication');
 const commentRouter = require('./routes/comment');
 
 // API
+const authApiRouter = require('./routes/api/auth');
 const usersApiRouter = require('./routes/api/users');
 const publicationsApiRouter = require('./routes/api/publications');
 const tagsApiRouter = require('./routes/api/tags');
@@ -73,6 +74,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/publication', publicationRouter)
 app.use('/comment', commentRouter);
+app.use('/api/auth', authApiRouter);
 app.use('/api/users', usersApiRouter);
 app.use('/api/publications', publicationsApiRouter);
 app.use('/api/tags', tagsApiRouter);
