@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Validator = require('validatorjs');
 const Tag = require('../../models/tag');
+const authenticate = require('../../middlewares/authenticateApi')
 
 /* GET / */
-router.post('/', (req, res, next) => {
+router.post('/', authenticate, (req, res, next) => {
   const data = req.body;
   const rules = {
     name: 'required|string'

@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Validator = require('validatorjs');
 const Publication = require('../../models/publication');
+const authenticate = require('../../middlewares/authenticateApi')
 
 /* GET / */
-router.get('/', async (req, res, next) => {
+router.get('/', authenticate, async (req, res, next) => {
   try {
     const publications = await Publication.find().exec()
     return res.json({
@@ -16,7 +17,7 @@ router.get('/', async (req, res, next) => {
 });
 
 /* GET /:slug */
-router.get('/:slug', async (req, res, next) => {
+router.get('/:slug', authenticate, async (req, res, next) => {
   try {
     const slug = req.params.slug;
     const publication = await Publication.findOne({ slug }).exec();
@@ -28,7 +29,7 @@ router.get('/:slug', async (req, res, next) => {
 });
 
 /* POST / */
-router.post('/', (req, res, next) => {
+router.post('/', authenticate, (req, res, next) => {
   try {
     const data = req.body
     const rules = {
@@ -55,7 +56,7 @@ router.post('/', (req, res, next) => {
 });
 
 /* PUT /:id */
-router.put('/:slug', async (req, res, next) => {
+router.put('/:slug', authenticate, async (req, res, next) => {
   try {
     const slug = req.params.slug;
     const data = req.body;
@@ -78,7 +79,7 @@ router.put('/:slug', async (req, res, next) => {
 });
 
 /* DELETE /:id */
-router.delete('/:slug', async (req, res, next) => {
+router.delete('/:slug', authenticate, async (req, res, next) => {
   try {
     const slug = req.params.slug;
     const deletedPublication = await Publication.findOneAndRemove({ slug }).exec();

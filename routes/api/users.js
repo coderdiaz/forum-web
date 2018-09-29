@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const authenticate = require('../../middlewares/authenticateApi')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', authenticate,  function(req, res, next) {
   try {
     return res.json({});
   } catch (err) {
