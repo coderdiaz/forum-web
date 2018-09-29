@@ -20,6 +20,7 @@ router.get('/', async (req, res, next) => {
   res.render('index', {
     publications,
     tags,
+    currentTag: (req.query.tag) ? req.query.tag : '',
     query: (req.query.search) ? req.query.search : '' 
   });
 });

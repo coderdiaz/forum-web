@@ -40,6 +40,12 @@ block content
       div.tags-section
         h4 Tags
         div.list-group.tag-list
-          a.list-group-item.list-group-item-action.active(href="/") All
+          if currentTag == ''
+            a.list-group-item.list-group-item-action.active(href="/") All
+          else 
+            a.list-group-item.list-group-item-action(href="/") All
           each tag in tags
-            a.list-group-item.list-group-item-action(href="/?tag="+tag.name) #{tag.name}
+            if currentTag == tag.name
+              a.list-group-item.list-group-item-action.active(href="/?tag="+tag.name) #{tag.name}
+            else
+              a.list-group-item.list-group-item-action(href="/?tag="+tag.name) #{tag.name}
