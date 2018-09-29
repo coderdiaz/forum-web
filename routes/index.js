@@ -7,9 +7,21 @@ const isAuthenticated = require('../middlewares/isAuthenticated');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
-  const publications = await Publication.find().exec()
+  const filters = {}
+  if (req.query.tag) {
+    filters['tags'] = { $in: req.query.tag }
+  }
+  if (req.query.search) {
+    filters['$text'] = { $search: req.query.search }
+  }
+
+  const publications = await Publication.find(filters).exec()
   const tags = await Tag.find().exec();
-  res.render('index', { publications, tags });
+  res.render('index', {
+    publications,
+    tags,
+    query: (req.query.search) ? req.query.search : '' 
+  });
 });
 
 /* GET create page */
