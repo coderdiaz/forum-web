@@ -15,6 +15,8 @@ $ cp .env.example .env
 DEBUG=nodejs-fsbt-04-2018:*
 MONGO_URI_CONNECTION=mongodb://host/database
 SESSION_KEY=secret
+JWT_SECRET_KEY=secret
+JWT_EXPIRES_IN=3600
 
 # Firebase
 FIREBASE_APIKEY=API_KEY
