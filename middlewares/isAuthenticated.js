@@ -1,5 +1,4 @@
 const firebase = require('firebase');
-const debug = require('debug')('nodejs-fsbt-04-2018:server');
 
 /**
  * Middleware to know if a Firebase Auth user is authenticated
