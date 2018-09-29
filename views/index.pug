@@ -25,7 +25,7 @@ block content
                 span.nav-link <span class="footer__author">#{publication.author.name}</span> published #{moment(publication.createdAt).fromNow()}
               each tag in publication.tags
                 li.nav-item.tag-item
-                  a(href="/?="+tag, class="nav-link") #{tag}
+                  a(href="/?tag="+tag, class="nav-link") #{tag}
       else
         div.text-center
           img(src="images/svg/message.svg", width="150")
