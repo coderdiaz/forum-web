@@ -31,6 +31,9 @@ const PublicationSchema = new Schema({
   timestamps: true
 });
 
+// Added index for search
+PublicationSchema.index({ "title": "text"  }, { "name": "title_text", "default_language": "es", "language_override": "en", "textIndexVersion": 3});
+
 // Model
 const PublicationModel = mongoose.model('Publication', PublicationSchema);
 module.exports = PublicationModel;
