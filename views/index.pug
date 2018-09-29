@@ -42,4 +42,4 @@ block content
         div.list-group.tag-list
           a.list-group-item.list-group-item-action.active(href="/") All
           each tag in tags
-            a.list-group-item.list-group-item-action(href="/?="+tag.name) #{tag.name}
+            a.list-group-item.list-group-item-action(href="/?tag="+tag.name) #{tag.name}
