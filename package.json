@@ -16,6 +16,7 @@
     "firebase": "^5.4.2",
     "html-to-text": "^4.0.0",
     "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.3.0",
     "moment": "^2.22.2",
     "mongoose": "^5.2.12",
     "morgan": "~1.9.0",
