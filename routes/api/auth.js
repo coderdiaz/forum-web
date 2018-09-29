@@ -8,7 +8,7 @@ router.post('/login', (req, res, next) => {
   const { email, password } = req.body
   firebase.auth().signInWithEmailAndPassword(email, password).then(async auth => {
     const token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET_KEY, {
-      expiresIn: 3600000
+      expiresIn: process.env.JWT_EXPIRES_IN
     });
     return res.status(200).json({
       token
